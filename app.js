@@ -1,27 +1,34 @@
 const express = require("express");
-const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
-const db = require("./util/database");
+const database = require("./util/database");
+const session = require("express-session");
+const FileStore = require("session-file-store")(session);
+const cookieParser = require("cookie-parser");
+const app = express();
 
-const homePage = require("./routes/shop");
+//라우터 가져오기
+const shopRoutes = require("./routes/shop");
+const adminRoutes = require("./routes/admin");
+const authRoutes = require("./routes/auth");
 
-// db.execute('SELECT * FROM products');
-
+//pug 뷰 엔진
 app.set("view engine", "pug");
 app.set("views", "views");
 
-db.execute("SELECT * FROM book")
-  .then((result) => {
-    console.log(result[0], result[1]);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
+//body-parser사용
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  session({ secret: "my secret", resave: false, saveUninitialized: false })
+);
 
-app.use(homePage);
+database.db;
+
+// app.use(adminRoutes);
+app.use(authRoutes);
+app.use(shopRoutes);
+
+// db.getConnection();
 
 app.listen(5000);

@@ -9,4 +9,25 @@ html(lang="en")
         nav 
             a.active(href="/logIn") 로그인
             a.active(href="/signUp") 회원가입
-        p home..  
+            section
+                article
+                    if isloggedIn
+                        p=userMessage
+                        p=grade
+                    else
+                        p=userMessage
+                        a(href="./signUp")
+                    - let admin = grade === "admin" ? true : false
+                    if admin
+                        a(href="./manager") 도서 추가하러가기
+                article
+                    p 도서 정보
+                    a(href="./books") 도서 보러가기
+                    if isloggedIn
+                        p 주문조회
+                        a(href="./orderHistory") 주문조회 하러가기
+                    else
+                        p=userMessage
+                article
+                    p 장바구니
+                    a(href="./basket") 장바구니 보러가기
