@@ -15,19 +15,31 @@ const authRoutes = require("./routes/auth");
 //pug 뷰 엔진
 app.set("view engine", "pug");
 app.set("views", "views");
+//db
+database.db;
 
 //body-parser사용
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+
+//쿠키와 세션 사용
+app.use(cookieParser());
 app.use(
-  session({ secret: "my secret", resave: false, saveUninitialized: false })
+  session({
+    secret: "book online store", //암호화
+    resave: false, //세션을 항상 저장할지 여부
+    saveUninitialized: true, //  초기화되지 않은 채 스토어에 저장되는 세션
+    store: new FileStore(),
+    cookie: {
+      httpOnly: true,
+      secure: false,
+    },
+  })
 );
 
-database.db;
-
-// app.use(adminRoutes);
-app.use(authRoutes);
+app.use(adminRoutes);
 app.use(shopRoutes);
+app.use(authRoutes);
 
 // db.getConnection();
 
