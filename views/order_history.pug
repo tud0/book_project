@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body 
+        -for (let i in result1)
+            article 
+                header 
+                    h2 #{result1[i].order_date}
+
+                    -for (let j in result2)
+                        -if (result1[i].order_id == result2[j].order_order_id)
+                            p #{result2[j].book_name}
+                            p #{result2[j].book_price}
+                            p #{result2[j].order_amount}
+                            
+                    
+                    
+                    

@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body 
+
+        form(action="http://localhost:5000/order", method="post")
+            label(for="text") 카드종류
+            input(type="text", name="cart_kind") 
+            br 
+            label(for="text") 카드번호
+            input(type="text", name="cart_num") 
+            br 
+            label(for="text") 카드유효기간
+            input(type="text", name="cart_period")
+            br 
+            label(for="text") 우편번호
+            input(type="text", name="address_num") 
+            br 
+            label(for="text") 주소
+            input(type="text", name="address_basic") 
+            br 
+            label(for="text") 상세주소
+            input(type="text", name="address_semic") 
+            br 
+
+            button(type="submit") 결제하기 

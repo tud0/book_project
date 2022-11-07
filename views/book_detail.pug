@@ -7,8 +7,13 @@ html(lang="en")
         title Document
     body 
         img(src="https://cdn.pixabay.com/photo/2018/01/03/09/09/book-3057904_960_720.png", alt= "", width="500")
-        h1 #{result.book_name}
-        h3 #{result.book_price}
-        h3 #{result.author}
-        h3 #{result.publisher}
-        h3 #{result.published_date}
+
+        h1 제목: #{result[0].book_name}
+        h3 가격: #{result[0].book_price}
+        h3 저자: #{result[0].author}
+        h3 출판사: #{result[0].publisher}
+
+        a.active(href="/cart") 장바구니
+        a.active(href="/order")  주문하기
+
+        

@@ -17,6 +17,7 @@ exports.postLogin = (req, res, next) => {
 
           req.session.isLoggedIn = true; // 세션 정보 갱신
           req.session.user = ID;
+          req.session.user_num = result[0].user_num;
 
           if (ID == "admin") {
             req.session.grade_num = 500;

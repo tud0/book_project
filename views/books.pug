@@ -1,4 +1,4 @@
-
+doctype html
 html(lang="en")
     head
         meta(charset="UTF-8")
@@ -7,21 +7,15 @@ html(lang="en")
         title Document
     body 
 
-        form(action="http://localhost:5000/books", method="POST")
+        form(action="http://localhost:5000/books", method="post") 
             input(type="text", name="book")
             button(type="submit") 검색
 
         -for (let i in result)
             article 
                 header 
-                    img(src="https://cdn.pixabay.com/photo/2018/01/03/09/09/book-3057904_960_720.png", alt= result[i].book_name, width="100")
+                    img(src="https://cdn.pixabay.com/photo/2018/01/03/09/09/book-3057904_960_720.png", alt= "", width="100")
                     
-                    form(action="http://localhost:5000/book_detail", method="get") 
-                    input(type="hidden", name="title", value=i)
-                        h1 #{result[i].book_name}
-                        button(type="submit") 상세보기
-                        
-                        
-                    
-
-            
+                    h1 #{result[i].book_name}
+                    //- a.active(href=`/book_detail/${result[i].book_id}`)  상세보기
+                    a.active(href="/book_detail") 상세보기 

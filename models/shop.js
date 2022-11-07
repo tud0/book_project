@@ -1,6 +1,7 @@
 const db = require("../util/database");
+const { request } = require("express");
 
-exports.postBooks = (req, res, next) => {
+exports.postBook = (req, res, next) => {
   const { book } = req.body;
 
   db.query(

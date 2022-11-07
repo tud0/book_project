@@ -10,7 +10,7 @@ const app = express();
 //라우터 가져오기
 const shopRoutes = require("./routes/shop");
 const adminRoutes = require("./routes/admin");
-const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
 
 //pug 뷰 엔진
 app.set("view engine", "pug");
@@ -39,7 +39,7 @@ app.use(
 
 app.use(adminRoutes);
 app.use(shopRoutes);
-app.use(authRoutes);
+app.use(userRoutes);
 
 // db.getConnection();
 
