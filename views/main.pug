@@ -7,11 +7,15 @@ html(lang="en")
         title Main
     body 
         nav 
-            
-            a.active(href="/logIn") 로그인 
+            p #{user}님 환영합니다!
+            //- a.active(href="/logIn") 로그인 
             a.active(href="/cart") 장바구니
+            br
             a.active(href="/order_history") 주문내역
+            br
             a.active(href="/books") 도서 보기
+            br
             a.active(href="/logout") 로그아웃
-            p #{Message}
+
+            
             

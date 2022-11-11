@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signUp</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/">home</a>
+    </nav>
+
+    <form action="http://localhost:5000/signUp" , method="POST">
+      <label for="text">아이디</label>
+      <input type="text" , name="id" />
+      <br />
+      <label>비밀번호</label>
+      <input type="password" , name="pwd" />
+      <br />
+      <label>이름</label>
+      <input type="text" , name="username" />
+      <br />
+      <label>연락처</label>
+      <input type="tel" , name="tel" />
+      <br />
+      <button type="submit">등록</button>
+    </form>
+  </body>
+</html>

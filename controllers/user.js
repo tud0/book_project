@@ -1,5 +1,5 @@
 exports.getLogin = (req, res, next) => {
-  res.render("logIn");
+  res.render("logIn", { Message: "로그인을 하세요." });
 };
 
 exports.getSignUp = (req, res, next) => {

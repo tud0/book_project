@@ -13,7 +13,7 @@ const adminRoutes = require("./routes/admin");
 const userRoutes = require("./routes/user");
 
 //pug 뷰 엔진
-app.set("view engine", "pug");
+app.set("view engine", "ejs");
 app.set("views", "views");
 //db
 database.db;

@@ -24,7 +24,11 @@ exports.postLogin = (req, res, next) => {
             res.render("admin");
           } else {
             req.session.grade_num = 300;
-            res.render("main");
+            const user = req.session.user;
+            res.render("main", {
+              data: user + "님 환영합니다",
+              isLoggedIn: true,
+            });
           }
           req.session.save(function () {});
         } else {

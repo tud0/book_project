@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/">main</a>
+      <a href="signUp">signUp</a>
+    </nav>
+
+    <p><%=Message%></p>
+
+    <form action="http://localhost:5000/logIn" , method="POST">
+      <label for="text">ID</label>
+      <br />
+      <input type="text" , name="ID" />
+      <br />
+      <label for="password">Password</label>
+      <br />
+      <input type="password" , name="pwd" />
+      <br />
+      <button type="submit">Login</button>
+    </form>
+  </body>
+</html>

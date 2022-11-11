@@ -5,7 +5,7 @@ const app = express();
 const adminController = require("../controllers/admin");
 
 exports.getMain = (req, res) => {
-  res.render("main");
+  res.render("main", { data: "로그인을 해주세요.", isLoggedIn: false });
 };
 
 exports.getBooks = (req, res) => {

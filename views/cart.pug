@@ -9,10 +9,17 @@ html(lang="en")
         main
     
         p=cart_date 
+
+        -let total;
         -for (const i in cartList)
+
             -const [cart, book_num, title, price, amount] = [cartList[i].cart_num, cartList[i].book_id, cartList[i].book_name, cartList[i].book_price, cartList[i].amount]
+            -total = price * amount
             div 
                 p 도서 제목: #{title}
                 p 도서 가격: #{price}
                 p 주문 수량: #{amount}
+                br
+
+        p total: #{total}
         a.active(href="/order") 주문

@@ -29,8 +29,8 @@ exports.getCart = (req, res) => {
               if (err) throw err;
               date = result[0].cart_date;
               db.query(
-                "select cart.cart_num, book.book_id, book.book_name, cart.amount, book.book_price from cart inner join book on cart.cart_book_id = book.book_id where cart_num=?",
-                [result[0].cart_num],
+                "select cart.cart_num, book.book_id, book.book_name, cart.amount, book.book_price from cart inner join book on cart.cart_book_id = book.book_id where cart_user_num=?",
+                [result[0].cart_user_num],
                 (err, result) => {
                   if (err) throw err;
                   console.log(result);

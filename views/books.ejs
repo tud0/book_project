@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>books</title>
+  </head>
+  <body>
+    <form action="http://localhost:5000/books" , method="POST">
+      <input type="text" , name="search" />
+      <button type="submit">검색</button>
+    </form>
+
+    <% for (let i in result) { %>
+    <article>
+      <header>
+        <img
+          src="https://cdn.pixabay.com/photo/2018/01/03/09/09/book-3057904_960_720.png"
+          alt=""
+          ,
+          width="100"
+        />
+        <h1><%=result[i].book_name%></h1>
+        <a href="/book_detail<%=result[i].book_id%>">상세보기</a>
+      </header>
+    </article>
+  </body>
+</html>
