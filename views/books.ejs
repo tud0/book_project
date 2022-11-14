@@ -21,9 +21,17 @@
           ,
           width="100"
         />
-        <h1><%=result[i].book_name%></h1>
-        <a href="/book_detail<%=result[i].book_id%>">상세보기</a>
+        <form action="http://localhost:5000/book_detail" , method="get"></form>
+        <h1 name="book"><%=result[i].book_name%></h1>
+        <a href="/book_detail">상세보기</a>
+
+        <input type="hidden" id="data" value="<%result[i].book_id%>" />
       </header>
     </article>
+    <% } %>
   </body>
+  <script>
+    var data = document.getElementById("data");
+    document.data.submit();
+  </script>
 </html>

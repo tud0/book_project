@@ -16,8 +16,15 @@ exports.getBooks = (req, res) => {
 };
 
 exports.getBookDetail = (req, res) => {
-  db.query("SELECT * FROM book ", [], function (err, result) {
-    if (err) throw err;
-    res.render("book_detail", { result });
-  });
+  var jsonData = req.data;
+  var myJsonData = JSON.parse(jsonData);
+
+  db.query(
+    "SELECT * FROM book WHERE book_id = ?",
+    [myJsonData],
+    function (err, result) {
+      if (err) throw err;
+      res.render("book_detail", { result });
+    }
+  );
 };
