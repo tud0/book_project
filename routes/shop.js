@@ -12,7 +12,7 @@ router.get("/books", shopController.getBooks);
 
 router.post("/books", shopModel.postBook);
 
-router.get("/book_detail", shopController.getBookDetail);
+router.get("/book_detail/:data", shopController.getBookDetail);
 
 router.get("/order_history", orderController.getOrderHistory);
 

@@ -16,12 +16,11 @@ exports.getBooks = (req, res) => {
 };
 
 exports.getBookDetail = (req, res) => {
-  var jsonData = req.data;
-  var myJsonData = JSON.parse(jsonData);
+  const bookId = req.params.data;
 
   db.query(
-    "SELECT * FROM book WHERE book_id = ?",
-    [myJsonData],
+    "SELECT * FROM book WHERE book_id =?",
+    [bookId],
     function (err, result) {
       if (err) throw err;
       res.render("book_detail", { result });

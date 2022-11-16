@@ -13,22 +13,15 @@
       ,
       width="500"
     />
-    <h1><%=result[0].book_name%></h1>
+
+    <h1>제목: <%=result[0].book_name%></h1>
+    <h3>가격: <%=result[0].book_price%></h3>
+    <h3>저자: <%=result[0].author%></h3>
+    <h3>출판사: <%=result[0].publisher%></h3>
+
+    <form action="/order">
+      <input type="hidden" name="book" value="<%=result[0].book_id%>" />
+      <a href="/order">주문하기</a>
+    </form>
   </body>
 </html>
-
-<script>
-  exports.getBookDetail = (req, res) => {
-    var jsonData = document.getElementByID("myData");
-    var myJsonData = JSON.parse(jsonData);
-
-    db.query(
-      "SELECT * FROM book WHERE book_id = ?",
-      [myJsonData],
-      function (err, result) {
-        if (err) throw err;
-        res.render("book_detail", { result });
-      }
-    );
-  };
-</script>
